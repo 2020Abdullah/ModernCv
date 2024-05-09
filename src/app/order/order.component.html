@@ -1,0 +1,65 @@
+<div class="page-order">
+    <!-- header section -->
+    <header>
+        <img src="../../assets/images/logoIcon.png" class="logo_img" alt="logo">
+        <nav class="navbar-section">
+            <ul>
+                <li><a href="#" [routerLink]="['/']">Back To Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="order-heading">
+        <div class="content-box">
+          <h1>{{ serviceName }}</h1>
+        </div>
+    </section>
+    <section class="section" id="order">
+        <div class="container">
+            <div class="section-heading">
+                <h2>We are happy to contact you</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <form (ngSubmit)="sendOrder()" [formGroup]="orderForm">
+                        <input type="hidden" name="serviceId" formControlName="serviceId" value="{{ serviceId }}">
+                        <div class="input-box">
+                            <label>Service order</label>
+                            <input type="text" [disabled]="true" value="{{ serviceName }}" class="form-control disabled" readonly>
+                        </div>
+                        <div class="input-box">
+                            <label>Your Name</label>
+                            <input type="text" name="name" formControlName="name" class="form-control">
+                        </div>
+                        <div class="input-box">
+                            <label>what's Up Phone</label>
+                            <input type="number" name="phone" formControlName="phone" class="form-control">
+                        </div>
+                        <div class="input-box">
+                            <label>Email</label>
+                            <input type="email" name="email" formControlName="email" class="form-control">
+                        </div>
+                        <button type="submit" [disabled]="orderForm.invalid" class="btn btn-success">Send Now</button>
+                    </form>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="sidebar-widgets">
+                        <div class="widget-sidebar">
+                            <h2 class="inner-header-title">
+                                Service preview
+                            </h2>
+                            <div class="videoPreview">
+                                <iframe height="315" src="https://www.youtube.com/embed/5Bl3CCizSRQ?si=6yrZXk81aqxCaFf_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer section -->
+    <footer>
+        <div class="footer-text">
+            <p>Copyright &copy; {{ year }} by Abdallah Mohamad | All Right Reserved .</p>
+        </div>
+    </footer>
+</div>

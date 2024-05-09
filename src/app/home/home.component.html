@@ -1,0 +1,230 @@
+<div class="page-home">
+    <!-- header section -->
+    <header>
+        <div class="container">
+            <div class="menu">
+                <img src="../../assets/images/logoIcon.png" class="logo_img" alt="logo">
+                <nav class="navbar-section">
+                    <ul>
+                        <li><a href="#home-content">home</a></li>
+                        <li><a href="#About">about-us</a></li>
+                        <li><a href="#services">services</a></li>
+                        <li><a href="#projects">projects</a></li>
+                        <li><a href="#contact">contact us</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- mobile menu -->
+        <a class="menu-icon btn" data-bs-toggle="offcanvas" href="#offMenu" role="button" aria-controls="offcanvasExample">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <div class="menu-mobile offcanvas offcanvas-start" tabindex="-1" id="offMenu" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">my portfolio</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="portfolio-item">
+                    <div class="image">
+                        <img src="../../assets/images/mycircle.jpg" alt="circle">
+                    </div>
+                    <p>Full Stack Web Developer</p>
+                    <div class="links flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#home-content">Home</a>
+                        </li>
+                        <li class="nav-item" (click)="closeSidebar()">
+                            <a class="nav-link" href="#About">About</a>
+                        </li>
+                        <li class="nav-item" (click)="closeSidebar()">
+                            <a class="nav-link" href="#services">services</a>
+                        </li>
+                        <li class="nav-item" (click)="closeSidebar()">
+                            <a class="nav-link" href="#projects">projects</a>
+                        </li>
+                        <li class="nav-item" (click)="closeSidebar()">
+                            <a class="nav-link" href="#contact">contact us</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- home content section -->
+    <section id="home-content">
+        <div class="hero-overlay">
+            <div class="background-video">
+                <video loop muted autoplay>
+                    <source src="../../assets/video/background.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="content-box">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <div class="content">
+                                <ngx-typed-js [loop]="true" [typeSpeed]="50" [shuffle]="true" [strings]='["Hi, my name Abdallah Mohamad", "Full Stack Web Developer"]'>
+                                    <h2 class="typing"></h2>
+                                </ngx-typed-js>
+                                <p>I have experience in create websites. I have some skills and knowledge necessary to create any projects a success and enjoy every step of the design process from discussion and collaboration .</p>
+                                <a class="btn btn-outline-success" href="#">Download My Cv</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="item-image">
+                                <img src="../../assets/images/mycircle.jpg" alt="circle">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="section" id="About">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../assets/images/logoIcon.png" alt="image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-content">
+                        <div class="section-heading">
+                            <h2>About <span>Us</span></h2>
+                        </div>
+                        <div class="bio">
+                            <p class="lead">
+                                {{ About[0].info }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-heading">
+                <h2>our <span>services</span></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let s of services; index as i">
+                    <div class="service-box">
+                        <div class="box">
+                            <span class="num">0{{ i + 1 }}</span>
+                            <div class="content">
+                                <h3>{{ s.name }}</h3>
+                                <p>
+                                    {{ s.info }}
+                                </p>
+                                <button class="btn btn-success" [routerLink]="['order', s.id]">Order now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- projects section slider -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-heading">
+                <h2 class="text-white">my <span>projects</span></h2>
+            </div>
+            <div class="projects-content">
+                <owl-carousel-o [options]="slideConfig">
+                    <ng-container *ngFor="let p of projects;">
+                        <ng-template carouselSlide [id]="p.id">
+                        <div class="project-box card">
+                            <div class="project-layer">
+                                <h4>{{ p.name }}</h4>
+                                <p>{{ p.info }}</p>
+                                <a [href]="p.videoUrl">
+                                    <i class="fa fa-download"></i>
+                                </a>
+                            </div>
+                            <div class="card-image">
+                                <img [src]="p.imageUrl" alt="img">
+                            </div>
+                        </div>
+                        </ng-template>  
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </section>
+    <!-- contact us section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <h2>Contact <span>Me</span></h2>
+            </div>
+            <div class="myInfo">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="contact-info-item">
+                            <div class="icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="box">
+                                <h4>email</h4>
+                                <p>{{ About[0].email }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="contact-info-item">
+                            <div class="icon">
+                                <i class="fa fa-mobile"></i>
+                            </div>
+                            <div class="box">
+                                <h4>phone</h4>
+                                <p>{{ About[0].phone }} - {{ About[0].otherPhone }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form (ngSubmit)="sendMessage()" [formGroup]="formContact">
+                <div class="input-box row">
+                    <div class="col-md-6">
+                        <input type="text" name="name" formControlName="name" class="form-control" placeholder="Full Name">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" name="email" formControlName="email" class="form-control" placeholder="Email Address">
+                    </div>
+                </div>
+                <div class="input-box row">
+                    <div class="col-md-6">
+                        <input type="text" name="phone" formControlName="phone" class="form-control" placeholder="Mobile Number">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="subject" formControlName="subject" class="form-control" placeholder="Email Subject">
+                    </div>
+                </div>
+                <textarea class="form-control" name="message" formControlName="message" placeholder="Message Info" cols="30" rows="10"></textarea>
+                <button type="submit" class="btn btn-outline-success" [disabled]="formContact.invalid">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <!-- footer section -->
+    <footer>
+        <div class="footer-text">
+            <p>Copyright &copy; {{ year }} by Abdallah Mohamad | All Right Reserved .</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+            </a>
+        </div>
+    </footer>
+</div>

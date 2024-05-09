@@ -1,0 +1,38 @@
+<section class="services" id="services">
+    <div class="container">
+        <!-- heading service -->
+        <div class="page-header">
+            <h2 class="heading">my services</h2>
+        </div>
+        <!-- box action -->
+        <div class="box-action row">
+            <div class="col-md-10 filter">
+                <input type="text" [(ngModel)]="searchText" placeholder="بحث عن خدمة بالإسم ..." class="form-control">
+                <button class="btn btn-info" (click)="searchFilter()">بحث</button>
+            </div>
+            <div class="col-md-2">
+                <div class="search">
+                </div>
+                <div class="addService">
+                    <button class="btn btn-success" [routerLink]="['/dashboard/myservices/add']">إضافة خدمة جديد</button>
+                </div>
+            </div>
+        </div>
+        <!-- All services -->
+        <div class="row">
+            <div class="col-md-4" *ngFor="let s of services; index as i">
+                <div class="service-box">
+                    <div class="box">
+                        <span class="num">0{{ i + 1 }}</span>
+                        <div class="content">
+                            <h3>{{ s.name }}</h3>
+                            <p>
+                                {{ s.info }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

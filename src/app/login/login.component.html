@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="login-box mt-3">
+            <div class="box-form">
+                <h2>Login Account</h2>
+                <form [formGroup]="userData" (ngSubmit)="signIn()">
+                    <div class="input-box mb-2">
+                        <input type="text" placeholder="username" formControlName="email">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="input-box mb-2">
+                        <input type="password" placeholder="password" formControlName="password">
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

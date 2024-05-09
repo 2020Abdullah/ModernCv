@@ -1,0 +1,8 @@
+.formAdd {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--teal);
+    padding: 10px;
+    background-color: #eee;
+    direction: rtl;
+}

@@ -1,0 +1,61 @@
+#services {
+    direction: rtl;
+    margin-top: 2rem;
+}
+.box-action .filter {
+    display: flex;
+    gap: 10px;
+}
+.service-box h3 {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.service-box {
+    position: relative;
+    padding: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0 , 0.1);
+    border-radius: 5px;
+    margin: 20px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.service-box .box .num {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    margin: 0 auto;
+    transition: 1s;
+    box-shadow: 0 0 0 0 #198754;
+    background-color: #198754;
+} 
+.service-box .box:hover .num {
+    box-shadow: 0 0 0 400px #198754;
+    color: #fff;
+} 
+.service-box .box .content {
+    transition: 0.5s;
+    position: relative;
+}
+.service-box .box .content p {
+    width: 100%;
+    flex-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+.service-box .box:hover .content {
+    color: #fff;
+}
+.service-box .box:hover .content button {
+    background-color: #fff;
+    color: #333;
+}

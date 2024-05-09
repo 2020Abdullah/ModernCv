@@ -1,0 +1,22 @@
+<section id="createServices">
+    <div class="container">
+        <div class="page-header">
+            <h2 class="heading">add services to myservices</h2>
+        </div>
+        <div class="formAdd">
+            <form #f="ngForm" (ngSubmit)="addProject(f)">
+                <div class="mb-2">
+                    <label class="form-label">عنوان الخدمة</label>
+                    <input type="text" [(ngModel)]="title" name="title" class="form-control">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">وصف الخدمة</label>
+                    <textarea name="info" [(ngModel)]="info" class="form-control" cols="5" rows="5"></textarea>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-success" type="submit">حفظ البيانات</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

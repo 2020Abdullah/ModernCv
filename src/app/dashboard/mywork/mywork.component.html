@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="page-header">
+        <h2 class="heading">my works projects</h2>
+    </div>
+    <div class="box-action row">
+        <div class="col-md-10 filter">
+            <input type="text" [(ngModel)]="searchText" placeholder="بحث عن مشروع بالإسم ..." class="form-control">
+            <button class="btn btn-info" (click)="searchFilter()">بحث</button>
+        </div>
+        <div class="col-md-2">
+            <div class="search">
+            </div>
+            <div class="addWork">
+                <button class="btn btn-success" [routerLink]="['/dashboard/mywork/add']">إضافة عمل جديد</button>
+            </div>
+        </div>
+    </div>
+    <div class="box-works">
+        <div class="row">
+            <div class="filterSearch col-md-4" *ngFor="let work of works; trackBy: trackByworks">
+                <div class="card text-center">
+                    <div class="card-image">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span>...</span>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#" [routerLink]="['/dashboard/mywork/update', work.id]">تعديل</a></li>
+                                    <li><a class="dropdown-item" href="#" (click)="deleteProject(work.id)">حذف</a></li>
+                                </ul>
+                            </a>
+                        </div>
+                        <img class="img-fluid" height="200" attr.src="{{ work.imageUrl }}" alt="img">
+                    </div>
+                    <div class="card-body">
+                        <h3>{{ work.name }}</h3>
+                        <p>{{ work.info }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a attr.href="{{ work.videoUrl }}" class="btn btn-success">حمل فيديو المشروع</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

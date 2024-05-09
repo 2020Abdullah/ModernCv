@@ -1,0 +1,52 @@
+.box-works {
+    direction: rtl;
+    margin-top: 2rem;
+}
+.box-action {
+    direction: rtl;
+    margin-top: 2rem;
+}
+.box-action .filter {
+    display: flex;
+    gap: 10px;
+}
+.card {
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow:hidden;
+    transition: all 0.5s ease-in-out;
+    margin-bottom: 1rem;
+}
+.card-body p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: right;
+}
+.card-image {
+    position: relative;
+}
+.card-image .dropdown-toggle {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+}
+.card-image .dropdown-toggle span {
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+}
+.card-image .dropdown-toggle span:hover {
+    background-color: #eee;
+}
+.dropdown-toggle::after {
+    display: none!important;
+}
+.box-works {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}

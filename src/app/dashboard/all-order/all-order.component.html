@@ -1,0 +1,40 @@
+<section class="services" id="services">
+    <div class="container">
+        <!-- heading service -->
+        <div class="page-header">
+            <h2 class="heading">my Orders</h2>
+        </div>
+        <!-- box action -->
+        <div class="box-action">
+            <div class="filter">
+                <input type="text" [(ngModel)]="searchText" placeholder="search order by Name..." class="form-control">
+                <button class="btn btn-info" (click)="searchFilter()">search</button>
+            </div>
+        </div>
+        <!-- All orders -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-responsive">
+                            <thead>
+                                <th>Order Number</th>
+                                <th>Name</th>
+                                <th>phone</th>
+                                <th>email</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let o of orders; index as i">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ o.name }}</td>
+                                    <td>{{ o.phone }}</td>
+                                    <td>{{ o.email }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

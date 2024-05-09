@@ -1,0 +1,42 @@
+<section class="services" id="services">
+    <div class="container">
+        <!-- heading service -->
+        <div class="page-header">
+            <h2 class="heading">My Messages</h2>
+        </div>
+        <!-- box action -->
+        <div class="box-action">
+            <div class="filter">
+                <input type="text" [(ngModel)]="searchText" placeholder="search message by phone..." class="form-control">
+                <button class="btn btn-info" (click)="searchFilter()">search</button>
+            </div>
+        </div>
+        <!-- All orders -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-responsive">
+                            <thead>
+                                <th>subject</th>
+                                <th>Name</th>
+                                <th>email</th>
+                                <th>phone</th>
+                                <th>message</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let m of messages; index as i">
+                                    <td>{{ m.subject }}</td>
+                                    <td>{{ m.name }}</td>
+                                    <td>{{ m.email }}</td>
+                                    <td>{{ m.phone }}</td>
+                                    <td>{{ m.message }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

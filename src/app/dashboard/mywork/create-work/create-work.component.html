@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="page-header">
+        <h2 class="heading">create my project</h2>
+    </div>
+    <div class="formAdd">
+        <form #f="ngForm" (ngSubmit)="addProject(f)">
+            <div class="mb-2">
+                <label class="form-label">عنوان المشروع</label>
+                <input type="text" [(ngModel)]="title" name="title" class="form-control">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">وصف المشروع</label>
+                <textarea name="info" [(ngModel)]="info" class="form-control" cols="5" rows="5"></textarea>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">صورة مصغرة للمشروع</label>
+                <input type="link" [(ngModel)]="imageUrl" name="imageUrl" class="form-control" accept="image/*">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">فيديو صغير للمشروع</label>
+                <input type="link" [(ngModel)]="videoUrl" name="videoUrl" class="form-control" accept="video/*">
+            </div>
+            <div class="mb-2">
+                <button class="btn btn-success" type="submit">create project</button>
+            </div>
+        </form>
+    </div>
+</div>

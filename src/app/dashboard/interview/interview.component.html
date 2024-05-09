@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="page-header">
+        <h2 class="heading">my Interview Quetions</h2>
+    </div>
+    <div class="box-action">
+        <div class="createQ">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createQ">إضافة سؤال جديد</button>
+        </div>
+        <div class="ExpandedAll">
+            <button class="btn btn-outline-warning" (click)="ExpandedAll()">ExpandedAll</button>
+        </div>
+    </div>
+    <div class="box-Quetions">
+        <div class="accordion" id="accordionExample">
+            @if(Quetions.length > 0){
+                <div class="row g-0">
+                @for(Qu of Quetions; track $index){
+                    <div class="col-sm-11">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" attr.data-bs-target="#collapseQu{{ $index }}" aria-expanded="true" aria-controls="collapseOne">
+                                {{ Qu.title }}
+                            </button>
+                            </h2>
+                            <div id="collapseQu{{ $index }}" class="Quetion-answer accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                {{ Qu.answer }}
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="accordion-action">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    ... 
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#" (click)="openUpdateQuetion(Qu.id, Qu.title, Qu.answer)" data-bs-toggle="modal" data-bs-target="#updateQ">تعديل</a></li>
+                                    <li><a class="dropdown-item" href="#" (click)="deleteQuetion(Qu.id, $event)">حذف</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            }
+            @else{
+                <div class="alert alert-info">
+                    <div class="alert-body text-center">
+                        لا يوجد اى أسئلة مضافة حتي الآن
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="modal fade" id="createQ" tabindex="-1" aria-labelledby="createQ" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">إضافة سؤال جديد</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form (ngSubmit)="createQuetion()" [formGroup]="userData">
+                <div class="modal-body">
+                    <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">السؤال</label>
+                    <input type="text" class="form-control" formControlName="title" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                    <label for="message-text" class="col-form-label">الإجابة</label>
+                    <textarea class="form-control" formControlName="answer" id="message-text"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="updateQ" tabindex="-1" aria-labelledby="updateQ" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">تعديل السؤال</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form (ngSubmit)="updateQuetion(f)" #f="ngForm">
+                <div class="modal-body">
+                    <input type="hidden" class="form-control" [(ngModel)]="id" name="id" id="recipient-name">
+                    <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">السؤال</label>
+                    <input type="text" class="form-control" [(ngModel)]="title" name="title" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                    <label for="message-text" class="col-form-label">الإجابة</label>
+                    <textarea class="form-control" [(ngModel)]="answer" name="answer" id="message-text"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ البيانات</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+</div>

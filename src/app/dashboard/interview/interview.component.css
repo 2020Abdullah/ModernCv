@@ -1,0 +1,31 @@
+.box-action {
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 2rem;
+}
+.box-Quetions {
+    direction: rtl;
+    margin-top: 2rem;
+}
+.accordion-item .accordion-button {
+    background-color: var(--bs-teal);
+    color: #fff;
+}
+.accordion-button::after {
+    margin-right: auto!important;
+    margin-left: 0!important;
+}
+#createQ , #updateQ {
+    direction: rtl;
+}
+
+.accordion-action .dropdown {
+    width: 100%;
+    height: 100%;
+}
+.accordion-action .dropdown-toggle {
+    height: 100%;
+}
