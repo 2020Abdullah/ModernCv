@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, withHashLocation } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './create/create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
