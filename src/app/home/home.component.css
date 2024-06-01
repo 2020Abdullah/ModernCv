@@ -1,8 +1,8 @@
 
 
 :host {
-    --bg-color: #191f36;
-    --snd-bf-color: #262B40;
+    --bg-color: #8E3E63; /* [#191f36, #262B40] */
+    --snd-bf-color: #D2649A;
     --text-color: #fff;
     --main-color: #eebbff;
     --placeholder-color: #555b6e;
